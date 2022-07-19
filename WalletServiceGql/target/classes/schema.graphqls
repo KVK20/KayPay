@@ -1,0 +1,40 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Query{
+    getAllWallet : [Wallet]
+    getWalletById(id:Int):Wallet
+    getBalById(id:Int) :Transaction
+
+}
+
+type Mutation{
+    createWallet(user_id:Int,balance:Int,is_active:Boolean):Wallet
+    updateWallet(id:Int,user_id:Int,balance:Int,is_active:Boolean):Wallet!
+    sendMoney(amount:Int,sid:Int,rid:Int,date:String,Status:String):Transaction
+    addBalance(uid:Int,amount:Int):AddBalanceDetails
+}
+
+type Wallet{
+    id:ID!,
+    user_id: Int,
+    balance: Int,
+    is_active: Boolean
+}
+type Transaction{
+    id:ID!,
+    amount:Int,
+    sid:Int,
+    rid:Int,
+    date:String,
+    status:String
+}
+
+type AddBalanceDetails{
+    uid:ID!,
+    amount:Int
+}
+
+
