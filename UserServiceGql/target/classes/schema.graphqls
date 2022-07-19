@@ -1,0 +1,23 @@
+
+type Query{
+    getAllUser:[User]
+    userById(id: ID!) : User
+}
+
+type Mutation{
+
+    createCustomer(username: String!, role: String!, password: String,
+        email: String,mobile: String,is_kyc_done:Boolean)   :User
+}
+
+type User{
+
+    id:ID!,
+    username:String,
+    roles :String,
+    password:String,
+    email:String,
+    mobile:String,
+
+    is_kyc_done:Boolean
+}
